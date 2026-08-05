@@ -10,7 +10,7 @@ Durante este sprint se realizará la planificación inicial del proyecto, el dis
 
 ## Enlaces de planificación
 
-- [Wireframe del proyecto en Figma](https://www.figma.com/board/oyXSm3TR9ZTjDemsW7Fndo/Planificador-de-Tareas-Web?node-id=0-1&p=f&t=7X9ONTwsocjazvyx-0)
+- [Wireframe del proyecto en Figma](https://www.figma.com/design/hYrWU23DiGgCi5Eby4DsrK/Sin-t%C3%ADtulo?t=kfFBkyBWPCytgs11-0)
 - [Tablero del Sprint 1 en Trello](https://trello.com/b/XTKxKRvF/planificador-de-tareas-web)
 
 ## Tecnologías previstas
