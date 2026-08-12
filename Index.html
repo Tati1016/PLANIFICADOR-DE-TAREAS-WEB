@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Planificador de Tareas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <header class="encabezado border-bottom">
+        <nav class="container-fluid px-4 py-3">
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <a href="#" class="marca text-decoration-none d-flex align-items-center gap-2">
+
+                    <span class="marca-icono">
+                        <i class="bi bi-check2-square"></i>
+                    </span>
+
+                    <span>Planificador de Tareas</span>
+
+                </a>
+
+                <div class="d-flex align-items-center gap-4">
+
+                    <div class="fecha-actual d-none d-md-flex align-items-center gap-2">
+                        <i class="bi bi-calendar3"></i>
+                        <span>Martes, 5 de agosto de 2025</span>
+                    </div>
+
+                    <div class="avatar d-flex align-items-center justify-content-center">
+                        T
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="container-fluid px-3 px-md-4 py-4">
+
+        <div class="row g-4">
+
+            <section class="col-xl-9">
+
+                <!-- Presentación y resumen -->
+                <div class="row g-4 align-items-center mb-4">
+
+                    <div class="col-lg-5">
+
+                        <h1 class="titulo-principal">
+                            Hoy, una tarea a la vez.
+                        </h1>
+
+                        <p class="texto-secundario mb-0">
+                            Organiza lo importante sin perder de vista el foco.
+                        </p>
+
+                    </div>
+
+                    <div class="col-lg-7">
+
+                        <div class="row g-3">
+
+                            <div class="col-md-4">
+
+                                <article class="card tarjeta-resumen h-100">
+
+                                    <div class="card-body d-flex align-items-center gap-3">
+
+                                        <div class="resumen-icono">
+                                            <i class="bi bi-list-task"></i>
+                                        </div>
+
+                                        <div>
+                                            <p class="resumen-titulo mb-1">
+                                                Total tareas
+                                            </p>
+
+                                            <p class="resumen-numero mb-0">
+                                                12
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <article class="card tarjeta-resumen h-100">
+
+                                    <div class="card-body d-flex align-items-center gap-3">
+
+                                        <div class="resumen-icono resumen-pendientes">
+                                            <i class="bi bi-clock"></i>
+                                        </div>
+
+                                        <div>
+                                            <p class="resumen-titulo mb-1">
+                                                Total pendientes
+                                            </p>
+
+                                            <p class="resumen-numero mb-0">
+                                                7
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <article class="card tarjeta-resumen h-100">
+
+                                    <div class="card-body d-flex align-items-center gap-3">
+
+                                        <div class="resumen-icono resumen-realizadas">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+
+                                        <div>
+                                            <p class="resumen-titulo mb-1">
+                                                Total realizadas
+                                            </p>
+
+                                            <p class="resumen-numero mb-0">
+                                                5
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Foco de hoy -->
+                <section class="card tarjeta-foco mb-4">
+
+                    <div class="card-body p-4">
+
+                        <div class="seccion-titulo mb-3">
+                            <i class="bi bi-bullseye"></i>
+                            <span>Tu foco de hoy</span>
+                        </div>
+
+                        <h2 class="foco-titulo">
+                            Acá estará el título de la tarea que está en proceso
+                        </h2>
+
+                        <div class="row g-3 mt-2 mb-4 datos-foco">
+
+                            <div class="col-auto">
+
+                                <span class="dato-tarea d-inline-flex align-items-center gap-2">
+                                    <i class="bi bi-calendar3"></i>
+                                    Hoy
+                                </span>
+
+                            </div>
+
+                            <div class="col-auto">
+
+                                <span class="dato-tarea d-inline-flex align-items-center gap-2">
+                                    <i class="bi bi-clock"></i>
+                                    90 min
+                                </span>
+
+                            </div>
+
+                            <div class="col-auto">
+
+                                <span class="dato-tarea d-inline-flex align-items-center gap-2">
+                                    <i class="bi bi-tag"></i>
+                                    Diseño
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row g-3 align-items-center acciones-foco">
+
+                            <div class="col-md-6">
+
+                                <div class="progress" role="progressbar"
+                                    aria-label="Progreso de la tarea"
+                                    aria-valuenow="70"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100">
+
+                                    <div class="progress-bar" style="width: 70%"></div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-auto">
+
+                                <button type="button" class="btn boton-principal">
+                                    <i class="bi bi-play-fill"></i>
+                                    Reanudar tarea
+                                </button>
+
+                            </div>
+
+                            <div class="col-md-auto">
+
+                                <button type="button"
+                                    class="btn boton-opciones"
+                                    aria-label="Opciones de la tarea">
+
+                                    <i class="bi bi-three-dots"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Mi día -->
+                <section class="card tarjeta-dia">
+
+                    <div class="card-body p-4">
+
+                        <div class="seccion-titulo mb-2">
+                            <i class="bi bi-calendar3"></i>
+                            <span>Mi día</span>
+                        </div>
+
+                        <div class="encabezado-dia">
+                            <span>Hora</span>
+                        </div>
+
+                        <div class="lista-dia">
+
+                            <article class="tarea-dia">
+
+                                <div class="hora-tarea">
+                                    6:00
+                                </div>
+
+                                <div class="contenido-tarea">
+
+                                    <h3 class="mb-0">
+                                        Realizar la maquetación del blog
+                                    </h3>
+
+                                </div>
+
+                                <span class="badge estado estado-completada">
+                                    Completado
+                                </span>
+
+                                <button type="button"
+                                    class="btn menu-tarea"
+                                    aria-label="Opciones de la tarea">
+
+                                    <i class="bi bi-three-dots-vertical"></i>
+
+                                </button>
+
+                            </article>
+
+                            <article class="tarea-dia tarea-activa">
+
+                                <div class="hora-tarea">
+                                    10:30
+                                </div>
+
+                                <div class="contenido-tarea">
+
+                                    <h3 class="mb-0">
+                                        Entregar documentación web
+                                    </h3>
+
+                                </div>
+
+                                <span class="badge estado estado-proceso">
+                                    En proceso
+                                </span>
+
+                                <button type="button"
+                                    class="btn menu-tarea"
+                                    aria-label="Opciones de la tarea">
+
+                                    <i class="bi bi-three-dots-vertical"></i>
+
+                                </button>
+
+                            </article>
+
+                            <article class="tarea-dia">
+
+                                <div class="hora-tarea">
+                                    4:15
+                                </div>
+
+                                <div class="contenido-tarea">
+
+                                    <h3 class="mb-0">
+                                        Reunión con mi jefe
+                                    </h3>
+
+                                </div>
+
+                                <span class="badge estado estado-pendiente">
+                                    Pendiente
+                                </span>
+
+                                <button type="button"
+                                    class="btn menu-tarea"
+                                    aria-label="Opciones de la tarea">
+
+                                    <i class="bi bi-three-dots-vertical"></i>
+
+                                </button>
+
+                            </article>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+            <!-- Formulario -->
+            <aside class="col-xl-3">
+
+                <section class="card tarjeta-formulario h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="formulario-titulo d-flex align-items-center gap-2 mb-4">
+
+                            <i class="bi bi-plus-circle"></i>
+
+                            <h2 class="mb-0">
+                                Nueva tarea
+                            </h2>
+
+                        </div>
+
+                        <form>
+
+                            <div class="mb-4">
+
+                                <label for="titulo" class="form-label">
+                                    Título de la tarea
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="titulo"
+                                    name="titulo"
+                                    placeholder="Ej. Revisar el wireframe en Figma">
+
+                            </div>
+
+                            <div class="mb-4">
+
+                                <label for="descripcion" class="form-label">
+                                    Descripción de la tarea
+                                </label>
+
+                                <textarea
+                                    class="form-control"
+                                    id="descripcion"
+                                    name="descripcion"
+                                    rows="4"
+                                    placeholder="Agrega información sobre la tarea"></textarea>
+
+                            </div>
+
+                            <div class="row g-3 mb-4">
+
+                                <div class="col-md-6">
+
+                                    <label for="fecha" class="form-label">
+                                        Fecha
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        class="form-control"
+                                        id="fecha"
+                                        name="fecha">
+
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <label for="prioridad" class="form-label">
+                                        Prioridad
+                                    </label>
+
+                                    <select
+                                        class="form-select"
+                                        id="prioridad"
+                                        name="prioridad">
+
+                                        <option selected disabled>
+                                            Selecciona
+                                        </option>
+
+                                        <option value="alta">
+                                            Alta
+                                        </option>
+
+                                        <option value="media">
+                                            Media
+                                        </option>
+
+                                        <option value="baja">
+                                            Baja
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                            <div class="mb-4">
+
+                                <label for="espacio" class="form-label">
+                                    Espacio donde se realiza
+                                </label>
+
+                                <select
+                                    class="form-select"
+                                    id="espacio"
+                                    name="espacio">
+
+                                    <option selected disabled>
+                                        Selecciona un espacio
+                                    </option>
+
+                                    <option value="casa">
+                                        Casa
+                                    </option>
+
+                                    <option value="universidad">
+                                        Universidad
+                                    </option>
+
+                                    <option value="trabajo">
+                                        Trabajo
+                                    </option>
+
+                                    <option value="otro">
+                                        Otro
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="d-grid gap-3">
+
+                                <button type="button" class="btn boton-principal">
+                                    <i class="bi bi-plus-circle"></i>
+                                    Agregar tarea
+                                </button>
+
+                                <button type="reset" class="btn boton-secundario">
+                                    <i class="bi bi-arrow-clockwise"></i>
+                                    Limpiar espacio
+                                </button>
+
+                            </div>
+
+                            <div class="alert mensaje-formulario d-flex align-items-start gap-2 mt-4 mb-0"
+                                role="alert">
+
+                                <i class="bi bi-info-circle"></i>
+
+                                <span>
+                                    Aquí aparecerán los mensajes de éxito o error.
+                                </span>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
