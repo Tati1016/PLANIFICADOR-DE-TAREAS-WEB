@@ -214,7 +214,8 @@
 
                             <div class="col-md-6">
 
-                                <div class="progress" role="progressbar"
+                                <div class="progress"
+                                    role="progressbar"
                                     aria-label="Progreso de la tarea"
                                     aria-valuenow="70"
                                     aria-valuemin="0"
@@ -253,103 +254,343 @@
 
                 </section>
 
-                <!-- Mi día -->
+                <!-- Lista de tareas -->
                 <section class="card tarjeta-dia">
 
                     <div class="card-body p-4">
 
-                        <div class="seccion-titulo mb-2">
+                        <div class="seccion-titulo mb-3">
                             <i class="bi bi-calendar3"></i>
                             <span>Mi día</span>
                         </div>
 
-                        <div class="encabezado-dia">
-                            <span>Hora</span>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+
+                            <div>
+                                <h2 class="titulo-lista mb-1">
+                                    Tareas programadas
+                                </h2>
+
+                                <p class="texto-secundario mb-0">
+                                    Revisa las actividades que tienes organizadas para hoy.
+                                </p>
+                            </div>
+
+                            <span class="badge resumen-lista">
+                                5 tareas
+                            </span>
+
                         </div>
 
-                        <div class="lista-dia">
+                        <div class="lista-tareas d-grid gap-3">
 
-                            <article class="tarea-dia">
+                            <!-- Tarea 1 -->
+                            <article class="card tarjeta-tarea">
 
-                                <div class="hora-tarea">
-                                    6:00
+                                <div class="card-body p-3">
+
+                                    <div class="row g-3 align-items-center">
+
+                                        <div class="col-md-2">
+
+                                            <div class="hora-tarea d-flex align-items-center gap-2">
+                                                <i class="bi bi-clock"></i>
+                                                <span>6:00</span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-9">
+
+                                            <div class="d-flex justify-content-between align-items-start gap-3">
+
+                                                <div>
+                                                    <h3 class="titulo-tarea mb-1">
+                                                        Realizar la maquetación del blog
+                                                    </h3>
+
+                                                    <p class="descripcion-tarea mb-2">
+                                                        Finalizar la estructura visual de la página utilizando
+                                                        los componentes definidos para el proyecto.
+                                                    </p>
+                                                </div>
+
+                                                <span class="badge rounded-pill estado estado-completada">
+                                                    Completada
+                                                </span>
+
+                                            </div>
+
+                                            <div class="fecha-tarea d-flex align-items-center gap-2">
+                                                <i class="bi bi-calendar3"></i>
+                                                <span>12 de agosto de 2026</span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-1 text-end">
+
+                                            <button type="button"
+                                                class="btn menu-tarea"
+                                                aria-label="Opciones de la tarea">
+
+                                                <i class="bi bi-three-dots-vertical"></i>
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
                                 </div>
-
-                                <div class="contenido-tarea">
-
-                                    <h3 class="mb-0">
-                                        Realizar la maquetación del blog
-                                    </h3>
-
-                                </div>
-
-                                <span class="badge estado estado-completada">
-                                    Completado
-                                </span>
-
-                                <button type="button"
-                                    class="btn menu-tarea"
-                                    aria-label="Opciones de la tarea">
-
-                                    <i class="bi bi-three-dots-vertical"></i>
-
-                                </button>
 
                             </article>
 
-                            <article class="tarea-dia tarea-activa">
+                            <!-- Tarea 2 -->
+                            <article class="card tarjeta-tarea">
 
-                                <div class="hora-tarea">
-                                    10:30
+                                <div class="card-body p-3">
+
+                                    <div class="row g-3 align-items-center">
+
+                                        <div class="col-md-2">
+
+                                            <div class="hora-tarea d-flex align-items-center gap-2">
+                                                <i class="bi bi-clock"></i>
+                                                <span>10:30</span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-9">
+
+                                            <div class="d-flex justify-content-between align-items-start gap-3">
+
+                                                <div>
+                                                    <h3 class="titulo-tarea mb-1">
+                                                        Entregar documentación web
+                                                    </h3>
+
+                                                    <p class="descripcion-tarea mb-2">
+                                                        Organizar la documentación del proyecto y verificar
+                                                        que la información esté completa antes de entregarla.
+                                                    </p>
+                                                </div>
+
+                                                <span class="badge rounded-pill estado estado-proceso">
+                                                    En proceso
+                                                </span>
+
+                                            </div>
+
+                                            <div class="fecha-tarea d-flex align-items-center gap-2">
+                                                <i class="bi bi-calendar3"></i>
+                                                <span>12 de agosto de 2026</span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-1 text-end">
+
+                                            <button type="button"
+                                                class="btn menu-tarea"
+                                                aria-label="Opciones de la tarea">
+
+                                                <i class="bi bi-three-dots-vertical"></i>
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
                                 </div>
-
-                                <div class="contenido-tarea">
-
-                                    <h3 class="mb-0">
-                                        Entregar documentación web
-                                    </h3>
-
-                                </div>
-
-                                <span class="badge estado estado-proceso">
-                                    En proceso
-                                </span>
-
-                                <button type="button"
-                                    class="btn menu-tarea"
-                                    aria-label="Opciones de la tarea">
-
-                                    <i class="bi bi-three-dots-vertical"></i>
-
-                                </button>
 
                             </article>
 
-                            <article class="tarea-dia">
+                            <!-- Tarea 3 -->
+                            <article class="card tarjeta-tarea">
 
-                                <div class="hora-tarea">
-                                    4:15
+                                <div class="card-body p-3">
+
+                                    <div class="row g-3 align-items-center">
+
+                                        <div class="col-md-2">
+
+                                            <div class="hora-tarea d-flex align-items-center gap-2">
+                                                <i class="bi bi-clock"></i>
+                                                <span>12:00</span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-9">
+
+                                            <div class="d-flex justify-content-between align-items-start gap-3">
+
+                                                <div>
+                                                    <h3 class="titulo-tarea mb-1">
+                                                        Revisar componentes de Bootstrap
+                                                    </h3>
+
+                                                    <p class="descripcion-tarea mb-2">
+                                                        Comprobar que las tarjetas, botones, badges y formularios
+                                                        estén implementados correctamente.
+                                                    </p>
+                                                </div>
+
+                                                <span class="badge rounded-pill estado estado-pendiente">
+                                                    Pendiente
+                                                </span>
+
+                                            </div>
+
+                                            <div class="fecha-tarea d-flex align-items-center gap-2">
+                                                <i class="bi bi-calendar3"></i>
+                                                <span>13 de agosto de 2026</span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-1 text-end">
+
+                                            <button type="button"
+                                                class="btn menu-tarea"
+                                                aria-label="Opciones de la tarea">
+
+                                                <i class="bi bi-three-dots-vertical"></i>
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
                                 </div>
 
-                                <div class="contenido-tarea">
+                            </article>
 
-                                    <h3 class="mb-0">
-                                        Reunión con mi jefe
-                                    </h3>
+                            <!-- Tarea 4 -->
+                            <article class="card tarjeta-tarea">
+
+                                <div class="card-body p-3">
+
+                                    <div class="row g-3 align-items-center">
+
+                                        <div class="col-md-2">
+
+                                            <div class="hora-tarea d-flex align-items-center gap-2">
+                                                <i class="bi bi-clock"></i>
+                                                <span>14:30</span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-9">
+
+                                            <div class="d-flex justify-content-between align-items-start gap-3">
+
+                                                <div>
+                                                    <h3 class="titulo-tarea mb-1">
+                                                        Ajustar diseño responsive
+                                                    </h3>
+
+                                                    <p class="descripcion-tarea mb-2">
+                                                        Revisar la distribución del planificador en diferentes
+                                                        tamaños de pantalla y corregir los espacios necesarios.
+                                                    </p>
+                                                </div>
+
+                                                <span class="badge rounded-pill estado estado-pendiente">
+                                                    Pendiente
+                                                </span>
+
+                                            </div>
+
+                                            <div class="fecha-tarea d-flex align-items-center gap-2">
+                                                <i class="bi bi-calendar3"></i>
+                                                <span>14 de agosto de 2026</span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-1 text-end">
+
+                                            <button type="button"
+                                                class="btn menu-tarea"
+                                                aria-label="Opciones de la tarea">
+
+                                                <i class="bi bi-three-dots-vertical"></i>
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
 
                                 </div>
 
-                                <span class="badge estado estado-pendiente">
-                                    Pendiente
-                                </span>
+                            </article>
 
-                                <button type="button"
-                                    class="btn menu-tarea"
-                                    aria-label="Opciones de la tarea">
+                            <!-- Tarea 5 -->
+                            <article class="card tarjeta-tarea">
 
-                                    <i class="bi bi-three-dots-vertical"></i>
+                                <div class="card-body p-3">
 
-                                </button>
+                                    <div class="row g-3 align-items-center">
+
+                                        <div class="col-md-2">
+
+                                            <div class="hora-tarea d-flex align-items-center gap-2">
+                                                <i class="bi bi-clock"></i>
+                                                <span>16:00</span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-9">
+
+                                            <div class="d-flex justify-content-between align-items-start gap-3">
+
+                                                <div>
+                                                    <h3 class="titulo-tarea mb-1">
+                                                        Actualizar repositorio en GitHub
+                                                    </h3>
+
+                                                    <p class="descripcion-tarea mb-2">
+                                                        Registrar los cambios de la segunda tarea y publicar
+                                                        la versión actualizada del proyecto en el repositorio.
+                                                    </p>
+                                                </div>
+
+                                                <span class="badge rounded-pill estado estado-pendiente">
+                                                    Pendiente
+                                                </span>
+
+                                            </div>
+
+                                            <div class="fecha-tarea d-flex align-items-center gap-2">
+                                                <i class="bi bi-calendar3"></i>
+                                                <span>14 de agosto de 2026</span>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-1 text-end">
+
+                                            <button type="button"
+                                                class="btn menu-tarea"
+                                                aria-label="Opciones de la tarea">
+
+                                                <i class="bi bi-three-dots-vertical"></i>
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
 
                             </article>
 
