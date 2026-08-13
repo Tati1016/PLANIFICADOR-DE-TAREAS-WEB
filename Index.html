@@ -619,7 +619,7 @@
 
                         </div>
 
-                        <form>
+                        <form id="formulario-tarea">
 
                             <div class="mb-4">
 
@@ -700,6 +700,38 @@
 
                             </div>
 
+                            <!-- Estado -->
+                            <div class="mb-4">
+
+                                <label for="estado" class="form-label">
+                                    Estado
+                                </label>
+
+                                <select
+                                    class="form-select"
+                                    id="estado"
+                                    name="estado">
+
+                                    <option value="" selected disabled>
+                                        Selecciona un estado
+                                    </option>
+
+                                    <option value="pendiente">
+                                        Pendiente
+                                    </option>
+
+                                    <option value="en-proceso">
+                                        En proceso
+                                    </option>
+
+                                    <option value="completada">
+                                        Completada
+                                    </option>
+
+                                </select>
+
+                            </div>
+
                             <div class="mb-4">
 
                                 <label for="espacio" class="form-label">
@@ -737,7 +769,7 @@
 
                             <div class="d-grid gap-3">
 
-                                <button type="button" class="btn boton-principal">
+                                <button type="submit" class="btn boton-principal">
                                     <i class="bi bi-plus-circle"></i>
                                     Agregar tarea
                                 </button>
@@ -749,13 +781,15 @@
 
                             </div>
 
-                            <div class="alert mensaje-formulario d-flex align-items-start gap-2 mt-4 mb-0"
+                            <div
+                                class="alert mensaje-formulario d-none align-items-start gap-2 mt-4 mb-0"
+                                id="mensaje-formulario"
                                 role="alert">
 
                                 <i class="bi bi-info-circle"></i>
 
-                                <span>
-                                    Aquí aparecerán los mensajes de éxito o error.
+                                <span id="texto-mensaje">
+                                    Aquí aparecerán los mensajes de validación.
                                 </span>
 
                             </div>
@@ -771,6 +805,8 @@
         </div>
 
     </main>
+
+    <script src="app.js"></script>
 
 </body>
 
