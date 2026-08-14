@@ -71,4 +71,9 @@ formularioTarea.addEventListener('submit', (event) => {
     }
 
     ocultarMensajeError();
+    
+});
+
+formularioTarea.addEventListener('reset', () => {
+    ocultarMensajeError();
 });
