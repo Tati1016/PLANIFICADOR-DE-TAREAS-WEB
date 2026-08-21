@@ -1,3 +1,7 @@
+const taskManager = new TaskManager();
+
+console.log(taskManager.tasks);
+
 const formularioTarea = document.querySelector('#formulario-tarea');
 
 const tituloInput = document.querySelector('#titulo');
