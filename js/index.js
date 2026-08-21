@@ -14,6 +14,9 @@ const espacioSelect = document.querySelector('#espacio');
 const mensajeFormulario = document.querySelector('#mensaje-formulario');
 const textoMensaje = document.querySelector('#texto-mensaje');
 
+const botonesEstado = document.querySelectorAll('.boton-estado');
+
+
 function validFormFieldInput(data) {
     if (!data.titulo) {
         return 'Ingresa el título de la tarea.';
@@ -58,7 +61,6 @@ formularioTarea.addEventListener('submit', (event) => {
         espacio: espacioSelect.value
     };
 
-    
 
     console.log('Título:', datosTarea.titulo);
     console.log('Descripción:', datosTarea.descripcion);
@@ -75,9 +77,30 @@ formularioTarea.addEventListener('submit', (event) => {
     }
 
     ocultarMensajeError();
-    
+
 });
 
 formularioTarea.addEventListener('reset', () => {
     ocultarMensajeError();
+});
+
+botonesEstado.forEach((boton) => {
+    boton.addEventListener('click', () => {
+        const estaCompletada = boton.classList.contains('estado-completada');
+
+        boton.classList.remove(
+            'estado-pendiente',
+            'estado-proceso',
+            'estado-completada'
+        );
+
+        if (estaCompletada) {
+            boton.classList.add('estado-pendiente');
+            boton.textContent = 'Pendiente';
+            return;
+        }
+
+        boton.classList.add('estado-completada');
+        boton.textContent = 'Completada';
+    });
 });
