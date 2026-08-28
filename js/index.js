@@ -1,5 +1,12 @@
 const taskManager = new TaskManager();
 
+taskManager.addTask(
+    'Ajustar validaciones del formulario',
+    'Revisar que los campos obligatorios muestren el mensaje correcto antes de registrar una tarea',
+    '2026-08-30',
+    'PORHACER'
+);
+
 console.log(taskManager.tasks);
 
 const formularioTarea = document.querySelector('#formulario-tarea');
