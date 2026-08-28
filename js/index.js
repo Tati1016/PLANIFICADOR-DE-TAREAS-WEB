@@ -1,14 +1,5 @@
 const taskManager = new TaskManager();
 
-taskManager.addTask(
-    'Ajustar validaciones del formulario',
-    'Revisar que los campos obligatorios muestren el mensaje correcto antes de registrar una tarea',
-    '2026-08-30',
-    'PORHACER'
-);
-
-console.log(taskManager.tasks);
-
 const formularioTarea = document.querySelector('#formulario-tarea');
 
 const tituloInput = document.querySelector('#titulo');
@@ -22,7 +13,6 @@ const mensajeFormulario = document.querySelector('#mensaje-formulario');
 const textoMensaje = document.querySelector('#texto-mensaje');
 
 const botonesEstado = document.querySelectorAll('.boton-estado');
-
 
 function validFormFieldInput(data) {
     if (!data.titulo) {
@@ -68,7 +58,6 @@ formularioTarea.addEventListener('submit', (event) => {
         espacio: espacioSelect.value
     };
 
-
     console.log('Título:', datosTarea.titulo);
     console.log('Descripción:', datosTarea.descripcion);
     console.log('Fecha:', datosTarea.fecha);
@@ -85,6 +74,16 @@ formularioTarea.addEventListener('submit', (event) => {
 
     ocultarMensajeError();
 
+    taskManager.addTask(
+        datosTarea.titulo,
+        datosTarea.descripcion,
+        datosTarea.fecha,
+        datosTarea.estado
+    );
+
+    console.log(taskManager.tasks);
+
+    formularioTarea.reset();
 });
 
 formularioTarea.addEventListener('reset', () => {
