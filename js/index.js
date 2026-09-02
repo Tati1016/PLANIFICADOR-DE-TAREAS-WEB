@@ -12,6 +12,8 @@ const espacioSelect = document.querySelector('#espacio');
 const mensajeFormulario = document.querySelector('#mensaje-formulario');
 const textoMensaje = document.querySelector('#texto-mensaje');
 
+const listaTareas = document.querySelector('#lista-tareas');
+
 const botonesEstado = document.querySelectorAll('.boton-estado');
 
 function validFormFieldInput(data) {
@@ -80,6 +82,8 @@ formularioTarea.addEventListener('submit', (event) => {
         datosTarea.fecha,
         datosTarea.estado
     );
+
+    taskManager.render();
 
     console.log(taskManager.tasks);
 
