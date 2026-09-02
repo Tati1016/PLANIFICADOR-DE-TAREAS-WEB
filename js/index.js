@@ -117,3 +117,16 @@ botonesEstado.forEach((boton) => {
         boton.textContent = 'Completada';
     });
 });
+
+listaTareas.addEventListener('click', (event) => {
+    const botonEliminar = event.target.closest('.delete-button');
+
+    if (botonEliminar) {
+        const parentTask = botonEliminar.closest('.tarjeta-tarea');
+        const taskId = Number(parentTask.dataset.taskId);
+
+        taskManager.deleteTask(taskId);
+        taskManager.save();
+        taskManager.render();
+    }
+});

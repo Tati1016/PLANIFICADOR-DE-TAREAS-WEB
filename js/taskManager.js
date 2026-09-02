@@ -74,6 +74,18 @@ class TaskManager {
         }
     }
 
+    deleteTask(taskId) {
+        const newTasks = [];
+
+        for (let task of this.tasks) {
+            if (task.id !== taskId) {
+                newTasks.push(task);
+            }
+        }
+
+        this.tasks = newTasks;
+    }
+
     save() {
         const data = {
             tasks: this.tasks,
