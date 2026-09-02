@@ -19,8 +19,11 @@ const totalPendientesElemento = document.querySelector('#total-pendientes');
 const totalRealizadasElemento = document.querySelector('#total-realizadas');
 const cantidadTareasElemento = document.querySelector('#cantidad-tareas');
 
+const fechaActualElemento = document.querySelector('#fecha-actual');
+
 taskManager.render();
 actualizarResumenTareas();
+actualizarFechaActual();
 
 function validFormFieldInput(data) {
     if (!data.titulo) {
@@ -76,6 +79,20 @@ function actualizarResumenTareas() {
     } else {
         cantidadTareasElemento.textContent = totalTareas + ' tareas';
     }
+}
+
+function actualizarFechaActual() {
+    const fechaActual = new Date();
+
+    const fechaFormateada = fechaActual.toLocaleDateString('es-CO', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+
+    fechaActualElemento.textContent =
+        fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
 }
 
 formularioTarea.addEventListener('submit', (event) => {
@@ -146,6 +163,12 @@ listaTareas.addEventListener('click', (event) => {
     if (botonEliminar) {
         const parentTask = botonEliminar.closest('.tarjeta-tarea');
         const taskId = Number(parentTask.dataset.taskId);
+
+        const confirmarEliminacion = confirm('¿Deseas eliminar esta tarea?');
+
+        if (!confirmarEliminacion) {
+            return;
+        }
 
         taskManager.deleteTask(taskId);
         taskManager.save();
