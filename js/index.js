@@ -16,6 +16,8 @@ const listaTareas = document.querySelector('#lista-tareas');
 
 const botonesEstado = document.querySelectorAll('.boton-estado');
 
+taskManager.render();
+
 function validFormFieldInput(data) {
     if (!data.titulo) {
         return 'Ingresa el título de la tarea.';
@@ -83,6 +85,7 @@ formularioTarea.addEventListener('submit', (event) => {
         datosTarea.estado
     );
 
+    taskManager.save();
     taskManager.render();
 
     console.log(taskManager.tasks);
