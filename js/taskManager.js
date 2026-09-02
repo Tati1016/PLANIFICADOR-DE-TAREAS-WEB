@@ -19,6 +19,14 @@ class TaskManager {
     }
 
     createTaskHtml(task) {
+        let claseEstado = 'estado-pendiente';
+        let textoEstado = 'Pendiente';
+
+        if (task.status === 'COMPLETADA') {
+            claseEstado = 'estado-completada';
+            textoEstado = 'Completada';
+        }
+
         return `
             <article class="card tarjeta-tarea" data-task-id="${task.id}">
                 <div class="card-body p-3">
@@ -37,9 +45,11 @@ class TaskManager {
                                     </p>
                                 </div>
 
-                                <span class="badge rounded-pill estado estado-pendiente">
-                                    Pendiente
-                                </span>
+                                <button
+                                    type="button"
+                                    class="badge rounded-pill estado ${claseEstado} boton-estado border-0">
+                                    ${textoEstado}
+                                </button>
 
                             </div>
 
@@ -71,6 +81,20 @@ class TaskManager {
 
         for (let task of this.tasks) {
             listaTareas.innerHTML += this.createTaskHtml(task);
+        }
+    }
+
+    toggleTaskStatus(taskId) {
+        for (let task of this.tasks) {
+            if (task.id === taskId) {
+                if (task.status === 'COMPLETADA') {
+                    task.status = 'PORHACER';
+                } else {
+                    task.status = 'COMPLETADA';
+                }
+
+                return;
+            }
         }
     }
 

@@ -14,9 +14,13 @@ const textoMensaje = document.querySelector('#texto-mensaje');
 
 const listaTareas = document.querySelector('#lista-tareas');
 
-const botonesEstado = document.querySelectorAll('.boton-estado');
+const totalTareasElemento = document.querySelector('#total-tareas');
+const totalPendientesElemento = document.querySelector('#total-pendientes');
+const totalRealizadasElemento = document.querySelector('#total-realizadas');
+const cantidadTareasElemento = document.querySelector('#cantidad-tareas');
 
 taskManager.render();
+actualizarResumenTareas();
 
 function validFormFieldInput(data) {
     if (!data.titulo) {
@@ -48,6 +52,30 @@ function mostrarMensajeError(mensaje) {
 function ocultarMensajeError() {
     mensajeFormulario.classList.remove('d-flex');
     mensajeFormulario.classList.add('d-none');
+}
+
+function actualizarResumenTareas() {
+    const totalTareas = taskManager.tasks.length;
+    let totalPendientes = 0;
+    let totalRealizadas = 0;
+
+    for (let task of taskManager.tasks) {
+        if (task.status === 'COMPLETADA') {
+            totalRealizadas++;
+        } else {
+            totalPendientes++;
+        }
+    }
+
+    totalTareasElemento.textContent = totalTareas;
+    totalPendientesElemento.textContent = totalPendientes;
+    totalRealizadasElemento.textContent = totalRealizadas;
+
+    if (totalTareas === 1) {
+        cantidadTareasElemento.textContent = '1 tarea';
+    } else {
+        cantidadTareasElemento.textContent = totalTareas + ' tareas';
+    }
 }
 
 formularioTarea.addEventListener('submit', (event) => {
@@ -87,6 +115,7 @@ formularioTarea.addEventListener('submit', (event) => {
 
     taskManager.save();
     taskManager.render();
+    actualizarResumenTareas();
 
     console.log(taskManager.tasks);
 
@@ -97,28 +126,21 @@ formularioTarea.addEventListener('reset', () => {
     ocultarMensajeError();
 });
 
-botonesEstado.forEach((boton) => {
-    boton.addEventListener('click', () => {
-        const estaCompletada = boton.classList.contains('estado-completada');
-
-        boton.classList.remove(
-            'estado-pendiente',
-            'estado-proceso',
-            'estado-completada'
-        );
-
-        if (estaCompletada) {
-            boton.classList.add('estado-pendiente');
-            boton.textContent = 'Pendiente';
-            return;
-        }
-
-        boton.classList.add('estado-completada');
-        boton.textContent = 'Completada';
-    });
-});
-
 listaTareas.addEventListener('click', (event) => {
+    const botonEstado = event.target.closest('.boton-estado');
+
+    if (botonEstado) {
+        const parentTask = botonEstado.closest('.tarjeta-tarea');
+        const taskId = Number(parentTask.dataset.taskId);
+
+        taskManager.toggleTaskStatus(taskId);
+        taskManager.save();
+        taskManager.render();
+        actualizarResumenTareas();
+
+        return;
+    }
+
     const botonEliminar = event.target.closest('.delete-button');
 
     if (botonEliminar) {
@@ -128,5 +150,6 @@ listaTareas.addEventListener('click', (event) => {
         taskManager.deleteTask(taskId);
         taskManager.save();
         taskManager.render();
+        actualizarResumenTareas();
     }
 });
