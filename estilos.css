@@ -668,3 +668,67 @@ textarea.form-control {
         margin-top: -34px;
     }
 }
+/* Pie de página */
+
+/* Pie de página */
+
+.pie-pagina {
+    margin-top: 20px;
+    padding: 18px 0;
+    border-top: 1px solid var(--borde);
+    background-color: var(--blanco);
+}
+
+.pie-contenido {
+    min-height: 30px;
+}
+
+.pie-autor {
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.pie-autor span {
+    color: var(--texto);
+    font-weight: 600;
+}
+
+.pie-separador {
+    margin: 0 5px;
+    color: var(--rosa) !important;
+}
+
+/* Estado vacío de tareas */
+
+.estado-vacio {
+    padding: 34px 20px 30px;
+    border: 1px dashed #efcbd6;
+    border-radius: 12px;
+    background-color: var(--rosa-suave-2);
+}
+
+.estado-vacio-icono {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--rosa);
+    background-color: var(--rosa-claro);
+    font-size: 23px;
+}
+
+.estado-vacio-titulo {
+    margin-bottom: 6px;
+    color: var(--texto);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.estado-vacio-texto {
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.5;
+}

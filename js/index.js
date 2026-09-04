@@ -24,6 +24,7 @@ const fechaActualElemento = document.querySelector('#fecha-actual');
 taskManager.render();
 actualizarResumenTareas();
 actualizarFechaActual();
+actualizarEstadoVacio();
 
 function validFormFieldInput(data) {
     if (!data.titulo) {
@@ -95,6 +96,26 @@ function actualizarFechaActual() {
         fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
 }
 
+function actualizarEstadoVacio() {
+    if (taskManager.tasks.length === 0) {
+        listaTareas.innerHTML = `
+            <div class="estado-vacio text-center">
+                <div class="estado-vacio-icono">
+                    <i class="bi bi-check2-circle"></i>
+                </div>
+
+                <h3 class="estado-vacio-titulo">
+                    Tu día empieza aquí
+                </h3>
+
+                <p class="estado-vacio-texto mb-0">
+                    Agrega una tarea y enfócate en lo importante.
+                </p>
+            </div>
+        `;
+    }
+}
+
 formularioTarea.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -133,6 +154,7 @@ formularioTarea.addEventListener('submit', (event) => {
     taskManager.save();
     taskManager.render();
     actualizarResumenTareas();
+    actualizarEstadoVacio();
 
     console.log(taskManager.tasks);
 
@@ -154,6 +176,7 @@ listaTareas.addEventListener('click', (event) => {
         taskManager.save();
         taskManager.render();
         actualizarResumenTareas();
+        actualizarEstadoVacio();
 
         return;
     }
@@ -174,5 +197,6 @@ listaTareas.addEventListener('click', (event) => {
         taskManager.save();
         taskManager.render();
         actualizarResumenTareas();
+        actualizarEstadoVacio();
     }
 });
