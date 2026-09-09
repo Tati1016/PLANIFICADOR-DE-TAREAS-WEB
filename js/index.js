@@ -64,7 +64,7 @@ function actualizarResumenTareas() {
     let totalRealizadas = 0;
 
     for (let task of taskManager.tasks) {
-        if (task.status === 'COMPLETADA') {
+        if (task.status === 'DONE' || task.status === 'COMPLETADA') {
             totalRealizadas++;
         } else {
             totalPendientes++;
@@ -166,13 +166,23 @@ formularioTarea.addEventListener('reset', () => {
 });
 
 listaTareas.addEventListener('click', (event) => {
-    const botonEstado = event.target.closest('.boton-estado');
+    const botonEstado = event.target.closest('.done-button');
 
     if (botonEstado) {
         const parentTask = botonEstado.closest('.tarjeta-tarea');
         const taskId = Number(parentTask.dataset.taskId);
+        const task = taskManager.getTaskById(taskId);
 
-        taskManager.toggleTaskStatus(taskId);
+        if (!task) {
+            return;
+        }
+
+        if (task.status === 'DONE' || task.status === 'COMPLETADA') {
+            task.status = 'PORHACER';
+        } else {
+            task.status = 'DONE';
+        }
+
         taskManager.save();
         taskManager.render();
         actualizarResumenTareas();

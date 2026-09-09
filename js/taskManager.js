@@ -18,17 +18,17 @@ class TaskManager {
         });
     }
 
-    createTaskHtml(task) {
+    createTaskHtml(id, name, description, dueDate, status) {
         let claseEstado = 'estado-pendiente';
-        let textoEstado = 'Pendiente';
+        let textoEstado = 'Mark As Done';
 
-        if (task.status === 'COMPLETADA') {
+        if (status === 'DONE' || status === 'COMPLETADA') {
             claseEstado = 'estado-completada';
             textoEstado = 'Completada';
         }
 
         return `
-            <article class="card tarjeta-tarea" data-task-id="${task.id}">
+            <article class="card tarjeta-tarea" data-task-id="${id}">
                 <div class="card-body p-3">
                     <div class="row g-3 align-items-center">
 
@@ -37,17 +37,17 @@ class TaskManager {
 
                                 <div>
                                     <h3 class="titulo-tarea mb-1">
-                                        ${task.name}
+                                        ${name}
                                     </h3>
 
                                     <p class="descripcion-tarea mb-2">
-                                        ${task.description}
+                                        ${description}
                                     </p>
                                 </div>
 
                                 <button
                                     type="button"
-                                    class="badge rounded-pill estado ${claseEstado} boton-estado border-0">
+                                    class="badge rounded-pill estado ${claseEstado} done-button border-0">
                                     ${textoEstado}
                                 </button>
 
@@ -55,7 +55,7 @@ class TaskManager {
 
                             <div class="fecha-tarea d-flex align-items-center gap-2">
                                 <i class="bi bi-calendar3"></i>
-                                <span>${task.dueDate}</span>
+                                <span>${dueDate}</span>
                             </div>
                         </div>
 
@@ -80,22 +80,26 @@ class TaskManager {
         listaTareas.innerHTML = '';
 
         for (let task of this.tasks) {
-            listaTareas.innerHTML += this.createTaskHtml(task);
+            listaTareas.innerHTML += this.createTaskHtml(
+                task.id,
+                task.name,
+                task.description,
+                task.dueDate,
+                task.status
+            );
         }
     }
 
-    toggleTaskStatus(taskId) {
+    getTaskById(taskId) {
+        let foundTask;
+
         for (let task of this.tasks) {
             if (task.id === taskId) {
-                if (task.status === 'COMPLETADA') {
-                    task.status = 'PORHACER';
-                } else {
-                    task.status = 'COMPLETADA';
-                }
-
-                return;
+                foundTask = task;
             }
         }
+
+        return foundTask;
     }
 
     deleteTask(taskId) {
